@@ -84,7 +84,15 @@ $(function () {
         dots: true,
 
     });
-
+    // const follow_slide = new Swiper('.follow_slide', {
+    //     loop: true,
+    //     slidesPerView: 2,
+    //     spaceBetween: 30,
+    //     // autoplay: {
+    //     //     delay: 1000,
+    //     //     disableOnInteraction: false,
+    //     // },
+    // })
 
     $('#f1').on('change', function () {
         const lnk = $(this).val();
@@ -113,6 +121,18 @@ $(function () {
             $('.to_top').removeClass('on');
         }
     });
+
+    // aos처럼 on이 붙이면 효과나타나는 것
+    $(window).on('scroll', function () {
+        let sct = $(window).scrollTop();
+        $('._se_').each(function () {
+            if (sct + $(window).innerHeight() - 200 > $(this).offset().top) {
+                $(this).addClass('on')
+            } else {
+                $(this).removeClass('on')
+            }
+        })
+    })
 
 
 });
